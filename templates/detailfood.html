@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="jumbotron"><br>
+        <div class="card card-body" id="details">
+            <div class="contain-img"> 
+                {% if data.foodimg %}
+                    <img src="{{ data.foodimg.url }}" alt="" height="400px" width="400px">
+                {% else %}
+                    <img src="" alt="No Image" height="400px" width="400px">
+                {% endif %}
+            </div>
+            <div class="contain-info">
+                <h5 class="info">Name : {{ data.name }}</h5> 
+                <h5 class="info">Type : {{ data.type }}</h5>
+                <h5 class="info">Quantity : {{ data.quantity }} gram</h5> 
+                <h5 class="info">Protein : {{ data.protein }} gram</h5> 
+                <h5 class="info">Carbohydrates : {{ data.carbs }} gram</h5> 
+                <h5 class="info">Fat : {{ data.fat }} gram</h5>  
+                <h5 class="info">Nutrients : {{ data.nutrients }}</h5>
+                <h5 class="info">Vitamins : {{ data.vitamins }}</h5>  <br>
+                <a href="{% url 'deletef' pk=data.id %}" class="btn btn-danger" id="delete" style="width: 100px;">delete</a>
+            </div>      
+        </div>
+    </div>
+</div><br>
+
+{% endblock %}
